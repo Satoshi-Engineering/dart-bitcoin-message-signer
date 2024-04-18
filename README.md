@@ -1,6 +1,9 @@
-### Bitcoin Message Signer
+## Bitcoin Message Signer
+_by [#sathoshiengineeringcrew](https://satoshiengineering.com/)_
 
-A dart library to sign message like Bitcoin core.
+[![MIT License Badge](docs/img/licence-badge.svg)](LICENSE)
+
+A dart library to sign messages like Bitcoin core.
 
 
 ### How to use
@@ -35,3 +38,7 @@ Checkout examples in the [tests](test/bitcoin_message_signer_test.dart).
 ### Where do I get the private key from?
 
 This depends on the bitcoin library you use. E.g. [bdk_flutter](https://pub.dev/packages/bdk_flutter) returns the private key as `List<int>`, therefore you can simply transform it using `Uint8List.fromList(privateKey)`. Most other libraries probably return the private key either as list too, as hex string or in WIF format. In either case you probably need another library to transform the private key into a `Uint8List`.
+
+### Tip us
+
+If you like this project, add ideas, contribute or why not [send some tip love?](https://satoshiengineering.com/tipjar/)
