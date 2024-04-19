@@ -1,7 +1,7 @@
 ## Bitcoin Message Signer
 _by [#sathoshiengineeringcrew](https://satoshiengineering.com/)_
 
-[![MIT License Badge](docs/img/licence-badge.svg)](LICENSE)
+[![MIT License Badge](doc/img/licence-badge.svg)](LICENSE)
 
 A dart library to sign messages like [Bitcoin core](https://bitcoincore.org/en/doc/27.0.0/rpc/util/signmessagewithprivkey/).
 
