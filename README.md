@@ -3,7 +3,7 @@ _by [#sathoshiengineeringcrew](https://satoshiengineering.com/)_
 
 [![MIT License Badge](docs/img/licence-badge.svg)](LICENSE)
 
-A dart library to sign messages like Bitcoin core.
+A dart library to sign messages like [Bitcoin core](https://bitcoincore.org/en/doc/27.0.0/rpc/util/signmessagewithprivkey/).
 
 
 ### How to use
@@ -37,7 +37,13 @@ Checkout examples in the [tests](test/bitcoin_message_signer_test.dart).
 
 ### Where do I get the private key from?
 
-This depends on the bitcoin library you use. E.g. [bdk_flutter](https://pub.dev/packages/bdk_flutter) returns the private key as `List<int>`, therefore you can simply transform it using `Uint8List.fromList(privateKey)`. Most other libraries probably return the private key either as list too, as hex string or in WIF format. In either case you probably need another library to transform the private key into a `Uint8List`.
+This depends on the bitcoin library you use: 
+- [bdk_flutter](https://pub.dev/packages/bdk_flutter) returns the private key as `List<int>`, therefore you can simply transform it using `Uint8List.fromList(privateKey)`. 
+- **Most other libraries** probably return the private key either as list too, as hex string or in WIF format.
+- If the **private key is in WIF format**, you probably need another library to transform the private key into a `Uint8List`. You just have to find a library.
+
+> [!TIP]
+> **Testing a private key in (bitcoin) WIF format:** You will need to use a conversion tool, e.g. you can use a converter like the one found at https://privatekeys.pw/calc for testing these keys (*WIF --> Priv*). Additionally, a simple Google search for "bitcoin WIF to HEX" will provide multiple tool options.
 
 ### Tip us
 
