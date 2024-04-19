@@ -63,7 +63,6 @@ class BitcoinMessageSigner {
     for (var recoveryId = 0; recoveryId < 4; recoveryId++) {
       final recoveredPublicKey = signature.recoverPublicKey(messageHash, recoveryId);
       if (listEquals(recoveredPublicKey, publicKey)) {
-        print('recoveryId: $recoveryId');
         return recoveryId;
       }
     }
