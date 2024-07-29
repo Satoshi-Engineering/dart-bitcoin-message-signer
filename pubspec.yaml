@@ -1,5 +1,5 @@
 name: bitcoin_message_signer
-version: 1.0.1
+version: 1.0.2
 description: Sign messages like bitcoin core https://github.com/bitcoin/bitcoin
 
 repository: https://github.com/Satoshi-Engineering/dart-bitcoin-message-signer

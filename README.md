@@ -45,6 +45,12 @@ This depends on the bitcoin library you use:
 > [!TIP]
 > **Testing a private key in (bitcoin) WIF format:** You will need to use a conversion tool, e.g. you can use a converter like the one found at https://privatekeys.pw/calc for testing these keys (*WIF --> Priv*). Additionally, a simple Google search for "bitcoin WIF to HEX" will provide multiple tool options.
 
+
+### Verify the signature
+
+https://www.verifybitcoinmessage.com/
+
+
 ### Tip us
 
 If you like this project, add ideas, contribute or why not [send some tip love?](https://satoshiengineering.com/tipjar/)

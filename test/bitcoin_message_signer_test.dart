@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:bitcoin_message_signer/bitcoin_message_signer.dart';
@@ -83,5 +85,33 @@ void main() async {
     );
     final signature = signer.signMessage(message: 'hello');
     expect(signature, 'KIQp5daJG950+rxaBig2HtlCCi2yCCJv9xmXaP3i+zppGTWvQzk9LNczLcS/ykOP0keHXxZMX1lGpRY8LPKi3Wk=');
+  });
+
+  test('padLeft to r and s', () async {
+    final privateKey = '92426abd03734af5222db4eeadccd23c5b0ab92d44d5d335e20bfbbcca8b044a'; // L2827wpWu2ksmLzRdDwH9rGqg9uGtDDnKMq8XhhjRFHy1qxhGZWh
+    final signer = BitcoinMessageSigner(
+      privateKey: Uint8List.fromList(BytesUtils.fromHexString(privateKey)),
+      scriptType: P2WPKH(),
+    );
+    final signature = signer.signMessage(message: 'hello');
+    expect(base64Decode(signature).length, 65);
+    expect(signature, 'KDXJi5ZbVEd52xS0pv3Q3IDCmCGkg1zIgkPeYk2UwjyKALURIun/s8svNg6NV6ykRfhnguXfS86ihoH3qbJMamM=');
+  });
+
+  test('make sure the signature always has 65 bytes', () async {
+    for (var i = 0; i < 1000; i++) {
+      // generate random int
+      final rng = Random();
+      final privateKey = Uint8List(32);
+      for (var i = 0; i < 32; i++) {
+        privateKey[i] = rng.nextInt(256);
+      }
+      final signer = BitcoinMessageSigner(
+        privateKey: privateKey,
+        scriptType: P2WPKH(),
+      );
+      final signature = signer.signMessage(message: 'hello');
+      expect(base64Decode(signature).length, 65);
+    }
   });
 }

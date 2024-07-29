@@ -1,3 +1,7 @@
+# 1.0.2
+
+* Bugfix: make sure signature always has correct length
+
 # 1.0.1
 
 * Refactor readme.

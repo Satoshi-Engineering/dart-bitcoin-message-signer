@@ -17,7 +17,7 @@ class Signature {
   final ECSignature _signature;
 
   Uint8List get bytes {
-    final hex = bigIntToHex(_signature.r) + bigIntToHex(_signature.s);
+    final hex = _bigIntTo32ByteHex(_signature.r) + _bigIntTo32ByteHex(_signature.s);
     return Uint8List.fromList(BytesUtils.fromHexString(hex));
   }
 
@@ -26,6 +26,8 @@ class Signature {
     final publicKey = _recoverPublicKey(blockchainUtilsSignature, messageHash, recoveryId);
     return Uint8List.fromList(publicKey.point.toBytes());
   }
+  
+  String _bigIntTo32ByteHex(BigInt value) => bigIntToHex(value).padLeft(64, '0');
 
   BigInt _getR(int recoveryId) {
     // comment taken from: https://github.com/bitcoinj/bitcoinj/pull/3361/commits/39a75249404f442985fd250f65b6a1f29fa9b80b
